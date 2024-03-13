@@ -1,0 +1,17 @@
+{
+  "name": "pese-microservice-course-resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "courseResources.js",
+  "scripts": {
+    "start": "node courseResources.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/datastore": "^8.5.0",
+    "express": "^4.18.3"
+  }
+}
