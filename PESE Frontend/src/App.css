@@ -1,38 +1,63 @@
 .App {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  max-width: 800px;
+  margin: auto; /* Center the app in the viewport */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.content-row {
+  position: relative; /* This is crucial for positioning the arrows */
+  margin: 20px 0;
+}
+
+.content-row-window {
+  overflow: hidden;
+  margin: 0 40px; /* Make room for arrows */
+}
+
+.content-row-inner {
+  display: flex;
+  transition: transform 0.3s ease-out;
+}
+
+.content-item {
+  min-width: 33.333%; /* Ensure each item is a third of the row */
+  box-sizing: border-box;
+  padding: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content-item img {
+  width: 200px; /* Uniform image width */
+  height: 150px; /* Uniform image height */
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px; /* Space below the image */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.left-arrow {
+  left: 10px; 
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right-arrow {
+  right: 10px;
 }
