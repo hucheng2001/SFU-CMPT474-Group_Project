@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import './App.css';
 
 // Replace with actual content and image URLs.
@@ -55,6 +55,21 @@ const ContentRow = ({ items }) => {
 };
 
 const App = () => {
+  const [tests, setTest] = useState([]);
+
+  const makeAPICall = async () => {
+    try {
+      const response = await fetch('https://pese-gateway-api-sehicwjdpq-uw.a.run.app/api/user-preference/favourites/0', {mode:'cors'});
+      const res = await response.json();
+      setTest(res.user);
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
+  useEffect(() => {
+    makeAPICall();
+  }, [])
   return (
     <div className="App">
       <header>
@@ -71,6 +86,12 @@ const App = () => {
           <ContentRow items={contentData.improvement} />
         </section>
       </main>
+      <h3><br/>Example returned results from microservice, 'user preference'<br/></h3>
+      <ol>
+        {tests.map((test) => {
+          return(<li key={test.userId}>{test.favouriteCourses} for {test.name}</li>)
+        })}
+      </ol>
     </div>
   );
 };
